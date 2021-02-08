@@ -1,0 +1,28 @@
+{
+  "name": "mongoose_skeleton",
+  "version": "1.0.0",
+  "description": "A fitness tracker that allows uysers to track daily workouts, Log multiple exercises, track different metrics such as, weight, sets, reps, etc and log it.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "seed": "node seeders/seed.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.15",
+    "morgan": "^1.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlignSD/Work.it.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/AlignSD/Work.it/issues"
+  },
+  "homepage": "https://github.com/AlignSD/Work.it#readme"
+}
