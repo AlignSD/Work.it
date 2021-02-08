@@ -1,7 +1,9 @@
+// Dependencies
 const router = require('express').Router();
 const db = require('../models');
 const ObjectId = require('mongoose').Types.ObjectId;
 
+// GET route to find workouts
 router.get("/api/workouts", (req, res) => {
     db.Workout.aggregate([
         {
@@ -20,6 +22,7 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
+// POST route to create a new workout entry
 router.post("/api/workouts", (req, res) => {
     db.Workout.create({})
     .then(dbWorkout => {
@@ -30,6 +33,7 @@ router.post("/api/workouts", (req, res) => {
     });
 });
 
+// PUT request to update database with new entries
 router.put("/api/workouts/:id", (req, res) => {
     db.Workout.findByIdAndUpdate({
         _id: ObjectId(
@@ -45,6 +49,7 @@ router.put("/api/workouts/:id", (req, res) => {
         });
 });
 
+// GET request for searching on specific date
 router.get("/api/workouts/range", (req, res) => {
     db.Workout.aggregate([
         {
@@ -71,6 +76,5 @@ router.get("/api/workouts/range", (req, res) => {
     });
 });
 
-
-
+// Export router module 
 module.exports = router;

@@ -1,7 +1,8 @@
+// Dependencies
 const mongoose = require('mongoose');
-
+// Schema variable
 const Schema = mongoose.Schema;
-
+// Creating WorkoutSchema object
 const WorkoutSchema = new Schema({
     day: {
         type: Date,
@@ -42,7 +43,7 @@ const WorkoutSchema = new Schema({
         }
     ]
 });
-
+// setting WorkoutSchema model to a variable named Workout
 const Workout = mongoose.model("Workout", WorkoutSchema)
-
+// export Workout module
 module.exports = Workout;

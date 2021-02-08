@@ -1,11 +1,14 @@
+// Dependencies
 let mongoose = require("mongoose");
 let db = require("../models/workout");
 
+// connect to workout mongoose db
 mongoose.connect("mongodb://localhost/workout", {
   useNewUrlParser: true,
   useFindAndModify: false
 });
 
+// Object for seeding database
 let workoutSeed = [
   {
     day: new Date().setDate(new Date().getDate()-10),
@@ -124,6 +127,7 @@ let workoutSeed = [
   }
 ];
 
+// function to seed database
 db.Workout.deleteMany({})
   .then(() => db.Workout.collection.insertMany(workoutSeed))
   .then(data => {
