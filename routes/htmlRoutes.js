@@ -13,7 +13,7 @@ module.exports = (app) => {
     });
 
     // GET excercise.html
-    app.get("/excercise", (req, res) => {
-        res.sendFile(path.join(__dirname, "../public/excercise.html"));
+    app.get("/exercise", (req, res) => {
+        res.sendFile(path.join(__dirname, "../public/exercise.html"));
     });
 }
