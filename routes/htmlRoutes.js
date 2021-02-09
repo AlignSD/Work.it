@@ -5,7 +5,7 @@ const router = require("express").Router();
 // set path to public folder for easier to use filepaths
 let publicPath = path.join(__dirname, '../public');
 
-    git // GET stats.html
+     // GET stats.html
     router.get("/stats", (req, res) => {
         res.sendFile('/stats.html', { root: publicPath });
     })
