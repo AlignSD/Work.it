@@ -37,6 +37,6 @@ const WorkoutSchema = new Schema({
     ]
 });
 // setting WorkoutSchema model to a variable named Workout
-const Workout = mongoose.model("Workout", WorkoutSchema)
+const Workout = mongoose.model("workout", WorkoutSchema)
 // export Workout module
 module.exports = Workout;
