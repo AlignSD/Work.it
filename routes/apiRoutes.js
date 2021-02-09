@@ -1,5 +1,5 @@
 // Dependencies
-const router = require('express').Router();
+const router = require('express-promise-router')();
 const db = require('../models');
 const ObjectId = require('mongoose').ObjectId;
 
@@ -66,7 +66,7 @@ router.get("/api/workouts/range", (req, res) => {
     .then(dbWorkout => {
         res.json(dbWorkout);
     })
-    .catch(err => {
+    .catch (err => {
         res.json(err);
     });
 });
