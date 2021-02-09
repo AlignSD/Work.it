@@ -35,17 +35,13 @@ router.post("/api/workouts", (req, res) => {
 
 // PUT request to update database with new entries
 router.put("/api/workouts/:id", (req, res) => {
-    db.Workout.findByIdAndUpdate({
-        _id: ObjectId(req.params.id)},
-        { $push: { exercises: req.body }},
-        { new: true }
-        )
-        .then(dbWorkout => {
-            res.json(dbWorkout);
-        }) 
-        .catch(err => {
-            res.json(err);
-        });
+    db.Workout.findOneAndUpdate({_id: ObjectId(req.params.id)}, { $push: { exercises: req.body } }, { new: true })
+    .then(dbWorkout => {
+      res.json(dbWorkout);
+    })
+    .catch(err => {
+      res.json(err);
+    });
 });
 
 // GET request for searching on specific date
