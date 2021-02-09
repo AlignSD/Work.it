@@ -1,7 +1,7 @@
 // Dependencies
 const router = require('express').Router();
 const db = require('../models');
-const ObjectId = require('mongoose').Types.ObjectId;
+const ObjectId = require('mongoose').ObjectId;
 
 // GET route to find workouts
 router.get("/api/workouts", (req, res) => {
@@ -36,7 +36,7 @@ router.post("/api/workouts", (req, res) => {
 // PUT request to update database with new entries
 router.put("/api/workouts/:id", (req, res) => {
     db.Workout.findByIdAndUpdate({
-        _id: req.params.id},
+        _id: ObjectId(req.params.id)},
         { $push: { exercises: req.body }},
         { new: true }
         )
