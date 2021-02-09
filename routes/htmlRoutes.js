@@ -1,6 +1,8 @@
+// Dependencies
 const path = require("path");
 const router = require("express").Router();
 
+// set path to public folder for easier to use filepaths
 let publicPath = path.join(__dirname, '../public');
 
 
@@ -19,4 +21,5 @@ let publicPath = path.join(__dirname, '../public');
         res.sendFile('/exercise.html', { root: publicPath });
     })
     
+    // export router module
     module.exports = router;
