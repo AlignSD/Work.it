@@ -3,24 +3,7 @@ const router = require('express-promise-router')();
 const db = require('../models');
 const ObjectId = require('mongoose').ObjectId;
 
-// GET route to find workouts
-router.get("/api/workouts", (req, res) => {
-    db.Workout.aggregate([
-        {
-            $addFields: {
-                totalDuration: {
-                    $sum: "$exercises.duration",
-                }
-            }
-        }
-    ])
-    .then(dbWorkout => {
-        res.json(dbWorkout);
-    })
-    .catch(err => {
-        res.json(err);
-    });
-});
+
 
 // POST route to create a new workout entry
 router.post("/api/workouts", (req, res) => {
@@ -43,6 +26,8 @@ router.put("/api/workouts/:id", (req, res) => {
       res.json(err);
     });
 });
+
+
 
 // GET request for searching on specific date
 router.get("/api/workouts/range", (req, res) => {
@@ -71,5 +56,23 @@ router.get("/api/workouts/range", (req, res) => {
     });
 });
 
+// GET route to find workouts
+router.get("/api/workouts", (req, res) => {
+    db.Workout.aggregate([
+        {
+            $addFields: {
+                totalDuration: {
+                    $sum: "$exercises.duration",
+                }
+            }
+        }
+    ])
+    .then(dbWorkout => {
+        res.json(dbWorkout);
+    })
+    .catch(err => {
+        res.json(err);
+    });
+});
 // Export router module 
 module.exports = router;
